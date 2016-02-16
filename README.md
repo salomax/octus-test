@@ -63,7 +63,7 @@ Suggested Tools: maven, spring-webmvc, mongo-java-driver, junit, mockito
 
 ## API
 
-List all text item
+List all
 
 	Request GET /api/text
 	Response [  { "id":"", "text":""  } ]
@@ -76,7 +76,7 @@ Insert or Update
 	PUT /api/text/{id}
 	No Response
 
-DELETE
+Delete
 
 	DELETE /api/text/{id}
 	No Response

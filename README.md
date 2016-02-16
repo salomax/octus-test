@@ -32,8 +32,6 @@ Suggested Tools: maven, spring-webmvc, mongo-java-driver, junit, mockito
 
 ## Maven
 
-	Compile, pack and test
-	
 	$ mvn clean install
 
 ## Installing mongodb in ubuntu 15.04

@@ -58,5 +58,7 @@ Others utils cmds
 	 will not be shown, you would have to be root to see it all.)
 	tcp        0      0 127.0.0.1:27017         0.0.0.0:*               LISTEN      - 
 	
-	
+## Tomcat (in case)
+
+	http://localhost:8080/octus-salomax-test/
 

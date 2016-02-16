@@ -76,13 +76,17 @@ Insert or Update
 	PUT /api/text/{id}
 	No Response
 
+DELETE
+
 	DELETE /api/text/{id}
 	No Response
 	
 ## Security Layer
 
-	"X-Auth-Token"
-		
+The REST API requests a valid token by the header param "X-Auth-Token". 
+
+After login the user is authenticated and it received a token. From there, this token is enough to request any REST API method, in any client (web browser, mobile device, etc...). 
+
 	
 # Notes
 

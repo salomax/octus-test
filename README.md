@@ -6,12 +6,21 @@ Front End
 	
 Create web page that shows a list of items. The list must be:
 
-1. Editable
-	a. Specifically by double clicking the list item
-2. Searchable
-3. Sortable
+  1. Editable
+    a. Specifically by double clicking the list item
+  2. Searchable
+  3. Sortable
 	
 You can use any open-source framework you like, although jquery & backbone.marionette are preferred.
+
+> The Fronend is composed of:
+>   - HTML5, CSS3 and JS
+>   - JQuery (plugins jquery.cookie)
+>   - Bootstrap (plugins bootstrap-table)
+>   - modernizr
+> and all third lib is linked by CDN.
+>
+> All features requested above is implemented.
 
 Develop a Rest API that has the following functions:
 

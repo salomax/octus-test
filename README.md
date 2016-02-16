@@ -1,4 +1,4 @@
-# Octus Java developer Test
+# Octus Java Developer Test
 
 ## Spec
 

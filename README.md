@@ -4,6 +4,8 @@
 
 >Both spec (frontend and backend) is developed in the same solution, they are integrated each other.
 >It is builded over maven (https://github.com/salomax/octus-test/blob/master/pom.xml).
+>
+>The solution is a simple and basic CRUD of texts, or texts items, you can list all, search by partial text, insert new one or update it, besides remove it too. 
 
 ### Frontend
 	
@@ -16,7 +18,9 @@ Create web page that shows a list of items. The list must be:
 	
 You can use any open-source framework you like, although jquery & backbone.marionette are preferred.
 
-> The Fronend is composed of:
+> The Frontend aims a responsive design and is single-page application designed.
+>
+> It is composed of:
 >   - HTML5, CSS3 and JS
 >   - JQuery (plugins jquery.cookie)
 >   - Bootstrap (plugins bootstrap-table)
@@ -24,6 +28,7 @@ You can use any open-source framework you like, although jquery & backbone.mario
 > and all third lib is linked by CDN.
 >
 > All features requested above is implemented.
+> Chrome and Firefox browser validated the version. 
 
 ### Backend
 
@@ -42,16 +47,33 @@ Suggested Tools: maven, spring-webmvc, mongo-java-driver, junit, mockito
 * You can use any library that is available in maven central
 * Extra points will be awards for a complete solution that uses token based authentication
 
-> The backend is composed of:
+> The backend is a multi-layer application exposes its features by a REST API.
+>
+> It is composed of:
 >   - Spring MVC
 >   - Spring Security
 >   - MongoDB
+>   - TDD (unit test and integration test)
+>   - Libs (commons-lang3, mockito, hamcrest, jackson)
+>   - The layers are separated by 
+>      - View (HTML pages)
+>      - Controller (Rest)
+>      - Model (Service/DAO)
+>   - The security layer is builded with spring security and the authentication is token-based as resquested.
 
 # Notes
 
-## Maven
+## Download Version
+	
+In the project dir:
+
+	$ git clone https://github.com/salomax/octus-test.git
+
+## To compile and pack
 
 	$ mvn clean install
+
+Install the war file on your java web server.
 
 ## Installing mongodb in ubuntu 15.04
 
@@ -76,6 +98,7 @@ Others utils cmds
 	 will not be shown, you would have to be root to see it all.)
 	tcp        0      0 127.0.0.1:27017         0.0.0.0:*               LISTEN      - 
 	
-## Tomcat (in case)
+## Ready
 
-Access in http://localhost:8080/octus-salomax-test
+Access
+	http://localhost:8080/octus-salomax-test

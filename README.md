@@ -65,24 +65,23 @@ Suggested Tools: maven, spring-webmvc, mongo-java-driver, junit, mockito
 
 List all text item
 
-	GET /api/text
+	Request GET /api/text
+	Response [  { "id":"", "text":""  } ]
 
 Insert or Update
 
-	POST /api/text
-	[  
-	  {
-	     "id":"",
-	     "text":""
-	  }
-	]
+	Request POST /api/text
+	Response { "id":"", "text":""  }
 	
-
 	PUT /api/text/{id}
-	
-## Security
+	No Response
 
-X-Auth-Token
+	DELETE /api/text/{id}
+	No Response
+	
+## Security Layer
+
+	"X-Auth-Token"
 		
 	
 # Notes

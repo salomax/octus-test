@@ -2,7 +2,7 @@
 
 ## Spec
 
-Front End
+### Frontend
 	
 Create web page that shows a list of items. The list must be:
 
@@ -21,6 +21,8 @@ You can use any open-source framework you like, although jquery & backbone.mario
 > and all third lib is linked by CDN.
 >
 > All features requested above is implemented.
+
+### Backend
 
 Develop a Rest API that has the following functions:
 

@@ -100,5 +100,5 @@ Others utils cmds
 	
 ## Ready
 
-Access
-	http://localhost:8080/octus-salomax-test
+Access 
+	(http://localhost:8080/octus-salomax-test)

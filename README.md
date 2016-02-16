@@ -70,10 +70,10 @@ List all
 
 Insert or Update
 
-	Request POST /api/text
+	Request POST /api/text body { "id":"", "text":""  }
 	Response { "id":"", "text":""  }
 	
-	PUT /api/text/{id}
+	PUT /api/text/{id} body { "id":"", "text":""  }
 	No Response
 
 Delete

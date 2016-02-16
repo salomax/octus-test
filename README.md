@@ -43,7 +43,9 @@ Suggested Tools: maven, spring-webmvc, mongo-java-driver, junit, mockito
 * Extra points will be awards for a complete solution that uses token based authentication
 
 > The backend is composed of:
-> 
+>   - Spring MVC
+>   - Spring Security
+>   - MongoDB
 
 # Notes
 

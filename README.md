@@ -47,7 +47,7 @@ Suggested Tools: maven, spring-webmvc, mongo-java-driver, junit, mockito
 * You can use any library that is available in maven central
 * Extra points will be awards for a complete solution that uses token based authentication
 
-> The backend is a multi-layer application exposes its features by a REST API.
+> The backend is a multi-layer application and it exposes its features by a REST API.
 >
 > It is composed of:
 >   - Spring MVC
@@ -61,6 +61,30 @@ Suggested Tools: maven, spring-webmvc, mongo-java-driver, junit, mockito
 >      - Model (Service/DAO)
 >   - The security layer is builded with spring security and the authentication is token-based as resquested.
 
+## API
+
+List all text item
+
+	GET /api/text
+
+Insert or Update
+
+	POST /api/text
+	[  
+	  {
+	     "id":"",
+	     "text":""
+	  }
+	]
+	
+
+	PUT /api/text/{id}
+	
+## Security
+
+X-Auth-Token
+		
+	
 # Notes
 
 ## Download Version

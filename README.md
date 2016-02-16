@@ -83,11 +83,10 @@ Delete
 	
 ## Security Layer
 
-The REST API requests a valid token by the header param "X-Auth-Token". 
-
 After login the user is authenticated and it received a token. From there, this token is enough to request any REST API method, in any client (web browser, mobile device, etc...). 
 
-	
+Now you just send it by the header HTTP param "X-Auth-Token". 
+
 # Notes
 
 ## Download Version
@@ -125,7 +124,7 @@ Others utils cmds
 	 will not be shown, you would have to be root to see it all.)
 	tcp        0      0 127.0.0.1:27017         0.0.0.0:*               LISTEN      - 
 	
-## Ready
+## It's Ready
 
 Access 
 	(http://localhost:8080/octus-salomax-test)

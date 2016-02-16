@@ -25,8 +25,8 @@
         	contentType: "application/json; charset=utf-8",
         	data: JSON.stringify(options.data),
         	 beforeSend: function (request) {
-        		 if (getCookie('authToken')) {
-                     request.setRequestHeader("X-Auth-Token", getCookie('authToken'));
+        		 if ($.cookie('authToken')) {
+                     request.setRequestHeader("X-Auth-Token", $.cookie('authToken'));
         		 }
              },
 	    }).then(function(response) {
@@ -113,7 +113,7 @@
 	        sortable : true,
 	        searchable : true,
 	        formatter : function(value) {
-	        	return [value,
+	        	return [$($.parseHTML(value)).text(),
 	        	        '<div class="pull-right data-remove">',
 	        	        '<span class="fa fa-remove red"></span>',
 	        	        '</div>'].join('');
@@ -145,7 +145,6 @@
 	removeButton.bind('click', removeItemEvent);
 	
 	var updateColumn = function(response, $element) {
-		$element.toggleClass('td-column-data-editable', false);
 		$element.html(response.text);
 		$element.append(removeButton.clone().bind('click', removeItemEvent));
 	}
@@ -166,7 +165,11 @@
 				
 				// Update unique id from table
 				if (!row.id) {
+					// When is new one, and 'till does not have an unique id on table
 					$('#text-table').bootstrapTable('updateRow', {index : 0, row : response});
+				} else {
+					// When is old one, and already have an unique id on table
+					$('#text-table').bootstrapTable('updateByUniqueId', {id : row.id, row : response});
 				}
 
 				// Update td element
@@ -177,6 +180,7 @@
 				$('#text-table').bootstrapTable('removeByUniqueId', row.id);
 			});
 			// Update td element
+			$element.toggleClass('td-column-data-editable', false);			
 			$element.html('Updating data...');
 		};
 		// Bind updateRow on blur event
@@ -191,21 +195,17 @@
 	$()
 	
  }();
+
 /**
- * Load at the startup page the text items.
+ * Logout button.
  */
-!function(){
-	// Call API
-	$.api.list().then(
-		 function(response) {
-			 $('#text-table').bootstrapTable('load', response); // success
-		 },
-		 function(xhr, ajaxOptions, thrownError) {
-				alert('Error : It was not possible to execute the request.'); // error
-	 }); // End list
+!function() {
+	$('.lnk-logout').bind('click', function(event) {
+		event.preventDefault();
+		$.removeCookie("authToken");
+		window.location.replace("./");
+	});
 }();
 
-function getCookie(key) {
-    var keyValue = document.cookie.match('(^|;) ?' + key + '=([^;]*)(;|$)');
-    return keyValue ? keyValue[2] : null;
-}	
+
+

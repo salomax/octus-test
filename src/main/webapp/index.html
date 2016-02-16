@@ -19,6 +19,21 @@
 	<!-- Optional theme -->
 	<link rel="stylesheet" href="assets/css/octus-salomax-text.css" />
 	<link rel="stylesheet" href="assets/css/bootstrap-table.min.css" />
+	<style type="text/css">
+		/* This only works with JavaScript, 
+		if it's not present, don't show loader */
+		.no-js #loader { display: none;  }
+		.js #loader { display: block; position: absolute; left: 100px; top: 0; }
+		.se-pre-con {
+			position: fixed;
+			left: 0px;
+			top: 0px;
+			width: 100%;
+			height: 100%;
+			z-index: 9999;
+			background: url('assets/img/loader.gif') center no-repeat #fff;
+		}	
+	</style>
 				
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -28,28 +43,60 @@
     <![endif]-->
   </head>
   <body>
-	<nav class="navbar navbar-g">
-	  <div class="container-fluid">
-	    <!-- Brand and toggle get grouped for better mobile display -->
-	    <div class="navbar-header">
-	      <a class="navbar-brand" href="#"><img src="assets/img/main-logo.png" /></a>
-	    </div>
-	  </div><!-- /.container-fluid -->
-	</nav>
-
-	<div class="bs-docs-header" id="content">
-      <div class="container">
-        <h1>Test</h1>
-        <p>Folow below the implementation to Developer Octus Test.</p>
-      </div>
-    </div>
+  	
+  	<div class="se-pre-con"></div>
 	
-	<div class="container">
-		<table id="text-table"></table>
+	<div class="main-content" style="display: none;">
+	
+		<nav class="navbar navbar-g">
+		  <div class="container-fluid">
+		    <!-- Brand and toggle get grouped for better mobile display -->
+		    <div class="navbar-header pull-left">
+		      <a class="navbar-brand" href="#"><img src="assets/img/main-logo.png" /></a>
+		    </div>
+			<div class="navbar-text pull-right"><a class="lnk-logout" href="#">Logout</a></div>
+		  </div><!-- /.container-fluid -->
+		</nav>
+	
+		<div class="bs-docs-header" id="content">
+	      <div class="container">
+	        <h1>Test</h1>
+	        <p>Folow below the implementation to Developer Octus Test.</p>
+	      </div>
+	    </div>
+		
+		<div class="container">
+			<table id="text-table"></table>
+		</div>
+	
 	</div>
-
+	
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.js"></script>
+	<script type="text/javascript">
+		//paste this code under head tag or in a seperate js file.
+		// Wait for window load
+		$(window).load(function() {
+			
+			// Call API
+			$.api.list().then(
+				 function(response) {
+					 $('#text-table').bootstrapTable('load', response); // success
+					 
+						// Animate loader off screen
+						$(".se-pre-con").fadeOut("slow");
+						$(".main-content").fadeIn("slow");
+						
+				 },
+				 function(xhr, ajaxOptions, thrownError) {
+						alert('Error : It was not possible to execute the request.'); // error
+			 }); // End list
+
+		});
+	</script>
+
     <script src="assets/js/bootstrap-table.min.js"></script>
     
 	<!-- Latest compiled and minified JavaScript -->

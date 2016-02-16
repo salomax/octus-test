@@ -72,39 +72,13 @@
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+	<!-- app script -->
+    <script src="assets/js/login.js"></script>
     
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" 
 		integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-	
-	<script type="text/javascript">
-
-		$('#login-form').bind('submit', function(event ) {
-			event.preventDefault();
-			
-		    $.ajax({
-		        url: 'api/login',
-		    	type: 'POST',
-		    	contentType : 'application/x-www-form-urlencoded',
-		    	data: {
-		    		username : $('#username').val(),
-		    		password : $('#password').val()
-		    	}
-		    }).then(function(response) {
-		    	setCookie("authToken", response.token);
-		    	// similar behavior as an HTTP redirect
-	    		window.location.replace("./");
-		    }, function(xhr, ajaxOptions, thrownError) {
-		    	alert('Login fail!')
-		    });	
-			
-		});	
-		function setCookie(key, value) {
-            var expires = new Date();
-            expires.setTime(expires.getTime() + (1 * 24 * 60 * 60 * 1000));
-            document.cookie = key + '=' + value + ';expires=' + expires.toUTCString();
-        }
-	</script>
 	
   </body>
 </html>

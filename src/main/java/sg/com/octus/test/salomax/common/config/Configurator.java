@@ -16,9 +16,14 @@ import sg.com.octus.test.salomax.common.exception.TextException;
 @Configuration
 public class Configurator {
 	
-
+	/**
+	 * Properties file.
+	 */
 	private static Properties PROPERTIES;
 	
+	/**
+	 * Get key's value from properties file.
+	 */
 	public static String get(String key) {
 		
 		if (PROPERTIES == null) {

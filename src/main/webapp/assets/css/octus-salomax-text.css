@@ -66,6 +66,23 @@ input.form-control:active {
 	text-decoration: none;
 }
 
+.lnk-logout {
+	color : #fff;
+	text-transform: uppercase;
+	letter-spacing: 4px;	    
+	border : 0px;
+	background-color: transparent;	
+	outline: none;
+	text-decoration: none;	
+	font-size: 20px;
+}
+
+.lnk-logout:hover,
+.lnk-logout:visited{
+	color : #fff;
+	outline: none;
+	text-decoration: none;	
+}
 
 .input-column-data {
 	border: 0px;

@@ -25,8 +25,8 @@ You can use any open-source framework you like, although jquery & backbone.mario
 >   - JQuery (plugins jquery.cookie)
 >   - Bootstrap (plugins bootstrap-table)
 >   - modernizr
-> and all third lib is linked by CDN.
 >
+> The third lib is linked by CDNs.
 > All features requested above is implemented.
 > Chrome and Firefox browser validated the version. 
 

@@ -14,7 +14,7 @@ $('#login-form').bind('submit', function(event ) {
     	// similar behavior as an HTTP redirect
 		window.location.replace("./");
     }, function(xhr, ajaxOptions, thrownError) {
-    	alert('Login fail!')
+    	alert('Login failed! Enter user/user!')
     });	
 	
 });	

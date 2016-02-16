@@ -132,7 +132,7 @@
 		$('#text-table').bootstrapTable('insertRow', 
 				{index : 0, row : {id:'', text:'Enter text here...'}});	
 		// Get focus to new row added
-		$('#text-table tbody tr[data-index="0"] td').trigger('dblclick');
+		$('#text-table tbody tr[data-uniqueid=""] td').trigger('dblclick');
 	});		
 	
 	// Append button Add Item to table toolbar
@@ -162,16 +162,8 @@
 				id : row.id,
 				text : $element.find('input').val()
 			}).then(function(response) {
-				
 				// Update unique id from table
-				if (!row.id) {
-					// When is new one, and 'till does not have an unique id on table
-					$('#text-table').bootstrapTable('updateRow', {index : 0, row : response});
-				} else {
-					// When is old one, and already have an unique id on table
-					$('#text-table').bootstrapTable('updateByUniqueId', {id : row.id, row : response});
-				}
-
+				$('#text-table').bootstrapTable('updateByUniqueId', {id : row.id, row : response});
 				// Update td element
 				updateColumn(response, $element);
 			}, function(xhr, ajaxOptions, thrownError) {

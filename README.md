@@ -60,5 +60,5 @@ Others utils cmds
 	
 ## Tomcat (in case)
 
-	http://localhost:8080/octus-salomax-test/
+Access in http://localhost:8080/octus-salomax-test/
 

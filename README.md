@@ -2,34 +2,31 @@
 
 ## Spec
 
-	Front End
+Front End
 	
-	Create web page that shows a list of items. The list must be:
-	1) Editable
-		a. Specifically by double clicking the list item
-	2) Searchable
-	3) Sortable
+Create web page that shows a list of items. The list must be:
+
+1. Editable
+	a. Specifically by double clicking the list item
+2. Searchable
+3. Sortable
 	
-	You can use any open-source framework you like, although jquery & backbone.marionette are preferred.
+You can use any open-source framework you like, although jquery & backbone.marionette are preferred.
 
-	Develop a Rest API that has the following functions:
+Develop a Rest API that has the following functions:
 
-	1. Receive a JSON String from a web page and store it in a mongoDB
-	collection
-	2. Displays all stored strings
-	3. Delete one of the stored strings
-	4. Edit one of stored strings
+1. Receive a JSON String from a web page and store it in a mongoDB collection
+2. Displays all stored strings
+3. Delete one of the stored strings
+4. Edit one of stored strings
 
-	Suggested Tools: maven, spring-webmvc, mongo-java-driver, junit, mockito
+Suggested Tools: maven, spring-webmvc, mongo-java-driver, junit, mockito
 
-	* The result, should be a solution that compiles, builds and runs
-	with nothing other than maven
-	* Focus on testing, we will be looking for the signs of TDD :)
-	* As you will be focusing on testable code, we will looking for clean
-	separation of concerns between the layers
-	* You can use any library that is available in maven central
-	* Extra points will be awards for a complete solution that uses token
-	based authentication
+* The result, should be a solution that compiles, builds and runs with nothing other than maven
+* Focus on testing, we will be looking for the signs of TDD :)
+* As you will be focusing on testable code, we will looking for clean separation of concerns between the layers
+* You can use any library that is available in maven central
+* Extra points will be awards for a complete solution that uses token based authentication
 
 # Notes
 
@@ -52,11 +49,12 @@ http://askubuntu.com/questions/617097/mongodb-2-6-does-not-start-on-ubuntu-15-04
 	$ sudo apt-get install mongodb-org
 	$ sudo service mongod start
 	
-	Others utils cmds
+Others utils cmds
 
 	$ sudo service mongod stop
 	$ mongod --version
 	$ tail -f /var/log/mongodb/mongod.log #check if is ok
+	
 	$ netstat -tulpn | grep 27017
 	(Not all processes could be identified, non-owned process info
 	 will not be shown, you would have to be root to see it all.)

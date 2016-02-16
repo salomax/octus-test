@@ -2,6 +2,9 @@
 
 ## Spec
 
+>Both spec (frontend and backend) is developed in the same solution, they are integrated each other.
+>It is builded over maven (https://github.com/salomax/octus-test/blob/master/pom.xml).
+
 ### Frontend
 	
 Create web page that shows a list of items. The list must be:
@@ -38,6 +41,9 @@ Suggested Tools: maven, spring-webmvc, mongo-java-driver, junit, mockito
 * As you will be focusing on testable code, we will looking for clean separation of concerns between the layers
 * You can use any library that is available in maven central
 * Extra points will be awards for a complete solution that uses token based authentication
+
+> The backend is composed of:
+> 
 
 # Notes
 

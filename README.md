@@ -38,8 +38,7 @@ Suggested Tools: maven, spring-webmvc, mongo-java-driver, junit, mockito
 
 I faced problems installing mongodb 3.2 in ubuntu 15.04. See https://jira.mongodb.org/browse/SERVER-17742.
 
-I've decided to downgrade mongodb to 2.6 using debian repo as answer in 
-http://askubuntu.com/questions/617097/mongodb-2-6-does-not-start-on-ubuntu-15-04
+I've decided to downgrade mongodb to 2.6 using debian repo as answer in http://askubuntu.com/questions/617097/mongodb-2-6-does-not-start-on-ubuntu-15-04
 
 	$ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
 	$ echo 'deb http://downloads-distro.mongodb.org/repo/debian-sysvinit dist 10gen' | sudo tee /etc/apt/sources.list.d/mongodb.list
@@ -60,5 +59,4 @@ Others utils cmds
 	
 ## Tomcat (in case)
 
-Access in http://localhost:8080/octus-salomax-test/
-
+Access in http://localhost:8080/octus-salomax-test

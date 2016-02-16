@@ -16,14 +16,14 @@ public interface TextDAO {
 	 * 
 	 * @param text Text to insert or update.
 	 */
-	public void insert(TextTO text);
+	public TextTO insert(TextTO text);
 
 	/**
 	 * Update new text.
 	 * 
 	 * @param text Text to insert or update.
 	 */
-	public void update(TextTO text);
+	public TextTO update(TextTO text);
 	
 	/**
 	 * Get a collection of texts.

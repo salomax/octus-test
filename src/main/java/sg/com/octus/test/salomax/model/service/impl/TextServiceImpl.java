@@ -40,12 +40,11 @@ public class TextServiceImpl implements TextService {
 		
 		// Save
 		if (isValidId(text.getId())) {
-			this.dao.update(text);
+			return this.dao.update(text);
 		} else {
-			this.dao.insert(text);
+			return this.dao.insert(text);
 		}
 		
-		return text;
 	}
 	
 	/**

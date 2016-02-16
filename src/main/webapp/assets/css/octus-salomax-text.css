@@ -194,3 +194,9 @@ input.form-control:active {
   border-top-right-radius: 3px;
   border-bottom-right-radius: 3px;
 }
+
+.login-form {
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+}

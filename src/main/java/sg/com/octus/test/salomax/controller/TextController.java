@@ -20,6 +20,7 @@ import sg.com.octus.test.salomax.model.service.TextService;
  * 
  * @author salomax
  */
+@RequestMapping(value = "/text" )
 @RestController
 public class TextController {
 
@@ -35,7 +36,6 @@ public class TextController {
 	 * @return List of {@code Text}
 	 */
     @RequestMapping(
-    		path="/text",
     		method=RequestMethod.GET,
     		produces="application/json")
     public @ResponseBody List<TextTO> list() {
@@ -49,7 +49,7 @@ public class TextController {
 	 * @return Text saved.
 	 */
     @RequestMapping(
-    		path="/text/{id}",
+    		path="/{id}",
     		method=RequestMethod.PUT,
     		consumes="application/json",
     		produces="application/json")
@@ -65,12 +65,11 @@ public class TextController {
 	 * @return Text saved.
 	 */
     @RequestMapping(
-    		path="/text",
     		method=RequestMethod.POST,
     		consumes="application/json",
     		produces="application/json")
     @ExceptionHandler(TextException.class)
-    public TextTO post(@RequestBody TextTO text) {
+    public TextTO post(@RequestBody TextTO text) throws TextException {
         return this.textService.save(text);
     }	
 
@@ -80,7 +79,7 @@ public class TextController {
 	 * @param id {@code Text} id.
 	 */
     @RequestMapping(
-    		path="/text/{id}",
+    		path="/{id}",
     		method=RequestMethod.DELETE)
     public void delete(@PathVariable("id") String id) {
     	this.textService.delete(id);

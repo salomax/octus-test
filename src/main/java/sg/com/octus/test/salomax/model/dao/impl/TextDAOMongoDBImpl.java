@@ -8,6 +8,7 @@ import java.util.logging.Logger;
 
 import org.apache.commons.lang3.StringUtils;
 import org.bson.Document;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.mongodb.BasicDBObject;
@@ -19,6 +20,7 @@ import com.mongodb.client.model.IndexOptions;
 import com.mongodb.client.result.DeleteResult;
 import com.mongodb.client.result.UpdateResult;
 
+import sg.com.octus.test.salomax.common.config.Configurator;
 import sg.com.octus.test.salomax.common.exception.TextException;
 import sg.com.octus.test.salomax.common.to.TextTO;
 import sg.com.octus.test.salomax.model.dao.TextDAO;
@@ -30,6 +32,9 @@ import sg.com.octus.test.salomax.model.dao.TextDAO;
  */
 @Repository
 public class TextDAOMongoDBImpl extends AbstractMongoDBDAO implements TextDAO {
+	
+	@Autowired
+	Configurator configurator;
 	
 	/**
 	 * Logging.
@@ -64,7 +69,7 @@ public class TextDAOMongoDBImpl extends AbstractMongoDBDAO implements TextDAO {
 	 * @param id Unique id for text.
 	 * @param text Text to insert or update.
 	 */
-	public void insert(TextTO text) {
+	public TextTO insert(TextTO text) {
 
 		LOG.finest(String.format("Insert the Text: %s", text));
 			
@@ -76,6 +81,7 @@ public class TextDAOMongoDBImpl extends AbstractMongoDBDAO implements TextDAO {
 		
 		LOG.finest(String.format("Inserted successful Text: %s", text));
 		
+		return text;
 	}
 	
 	
@@ -85,7 +91,7 @@ public class TextDAOMongoDBImpl extends AbstractMongoDBDAO implements TextDAO {
 	 * @param id Unique id for text.
 	 * @param text Text to insert or update.
 	 */
-	public void update(TextTO text) {
+	public TextTO update(TextTO text) {
 
 		LOG.finest(String.format("Update the Text: %s", text));
 		
@@ -103,8 +109,11 @@ public class TextDAOMongoDBImpl extends AbstractMongoDBDAO implements TextDAO {
 			
 			LOG.finest(String.format("Updated successful Text: %s", text));
 			
+		} else {
+			throw new TextException("No valid text id!");
 		}
 		
+		return text;		
 	}
 
 	/**

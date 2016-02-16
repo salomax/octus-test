@@ -23,11 +23,23 @@
 	        url: 'api/text' + options.path_params + options.query_params,
         	type: options.type,
         	contentType: "application/json; charset=utf-8",
-        	data: JSON.stringify(options.data)
+        	data: JSON.stringify(options.data),
+        	 beforeSend: function (request) {
+        		 if (getCookie('authToken')) {
+                     request.setRequestHeader("X-Auth-Token", getCookie('authToken'));
+        		 }
+             },
 	    }).then(function(response) {
 	    	deferred.resolve(response);
 	    }, function(xhr, ajaxOptions, thrownError) {
-	    	deferred.reject(xhr, ajaxOptions, thrownError);
+	    	// Verify authentication
+	    	if (xhr.status && xhr.status == 401) {
+	    		// similar behavior as an HTTP redirect
+	    		window.location.replace("login.html");
+    		} else {
+    	    	deferred.reject(xhr, ajaxOptions, thrownError);
+    		}
+	    	
 	    });	
 	    // Return promise
 	    return deferred.promise();
@@ -162,7 +174,7 @@
 			}, function(xhr, ajaxOptions, thrownError) {
 				alert('Error : It was not possible to execute the request.'); // error
 				// Update td element
-				updateColumn(response, $element);
+				$('#text-table').bootstrapTable('removeByUniqueId', row.id);
 			});
 			// Update td element
 			$element.html('Updating data...');
@@ -192,3 +204,8 @@
 				alert('Error : It was not possible to execute the request.'); // error
 	 }); // End list
 }();
+
+function getCookie(key) {
+    var keyValue = document.cookie.match('(^|;) ?' + key + '=([^;]*)(;|$)');
+    return keyValue ? keyValue[2] : null;
+}	

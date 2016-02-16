@@ -5,13 +5,15 @@ import java.util.UUID;
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoDatabase;
 
+import sg.com.octus.test.salomax.common.config.Configurator;
+
 /**
  * Abstract class to MongoDB implementation DAOs.
  * 
  * @author salomax
  */
 public abstract class AbstractMongoDBDAO {
-
+	
 	/**
 	 * Generate unique Id with UUID strategy, odds of creating 
 	 * a few tens of trillions of UUIDs in a year and having one duplicate,
@@ -31,9 +33,10 @@ public abstract class AbstractMongoDBDAO {
 	protected MongoDatabase getConnection() {
 		// Get mongo client
 		@SuppressWarnings("resource")
-		MongoClient mongoClient = new MongoClient();
+		MongoClient mongoClient = new MongoClient(String.format(
+				"%s:%s", Configurator.get("mongodb.host"), Configurator.get("mongodb.port")));
 		// Connect to "test" database
-		MongoDatabase db = mongoClient.getDatabase("octus-test");
+		MongoDatabase db = mongoClient.getDatabase(Configurator.get("mongodb.database"));
 		// Return
 		return db;
 	}

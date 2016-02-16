@@ -12,7 +12,7 @@
 
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>/WEB-INF/spring-dispatcher-servlet.xml</param-value>
+		<param-value>/WEB-INF/spring-dispatcher-servlet.xml /WEB-INF/applicationContext-security.xml</param-value>
 	</context-param>
 
 	<welcome-file-list>
@@ -28,6 +28,15 @@
 		<servlet-name>spring-dispatcher</servlet-name>
 		<url-pattern>/api/*</url-pattern>
 	</servlet-mapping>
+
+    <filter-mapping>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <url-pattern>/api/*</url-pattern>
+    </filter-mapping>
+	<filter>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+    </filter>
 
 </web-app>
 
